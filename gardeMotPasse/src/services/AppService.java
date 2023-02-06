@@ -93,10 +93,17 @@ public class AppService {
 
         for (App app:appList) {
             if(app.getAppName().contains(appName)){
-                System.out.println("Pour l'application : "+app.getAppName());
+                if(appList.indexOf(app) == 0){
+                    System.out.println("Pour l'application : "+app.getAppName());
+                    System.out.println("===========================================================");
+                } else if(!appList.get(appList.indexOf(app)-1).getAppName().equalsIgnoreCase(app.getAppName())){
+                    System.out.println("Pour l'application : "+app.getAppName());
+                    System.out.println("===========================================================");
+                }
+
                 System.out.println("-> Nom d'utilisateur : "+app.getUserName());
                 System.out.println("-> Mot de passe : "+app.getPassword());
-                System.out.println("===============================================");
+                System.out.println("-------------------------------------------------------");
             }
         }
     }
